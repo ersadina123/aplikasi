@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wadah-aplikasi {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 22px;
+    color: #333;
+    border-bottom: 2px solid #cbd5e1;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 18px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.grup-pilihan {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tombol {
+    background-color: white;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.tombol:hover:not(:disabled) {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.tombol:disabled {
+    cursor: not-allowed;
+}
+
+/* Warna untuk jawaban benar dan salah */
+.benar {
+    background-color: #22c55e !important;
+    color: white;
+    border-color: #22c55e !important;
+}
+
+.salah {
+    background-color: #ef4444 !important;
+    color: white;
+    border-color: #ef4444 !important;
+}
+
+#tombol-lanjut {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#tombol-lanjut:hover {
+    background-color: #0f172a;
+}
+
+.sembunyi {
+    display: none;
+}
