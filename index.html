@@ -1,27 +1,735 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Learning: Kuis Interaktif</title>
-    <link rel="stylesheet" href="style.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.5.1 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
 </head>
-<body>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;id&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;E-Learning: Kuis Interaktif &amp; Dokumentasi&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <div class="wadah-aplikasi">
-        <h1>Ujian Akhir Dasar Pemrograman</h1>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wadah-aplikasi {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: #333;
+            border-bottom: 2px solid #cbd5e1;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .grup-pilihan {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tombol {
+            background-color: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .tombol:hover:not(:disabled) {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .tombol:disabled {
+            cursor: not-allowed;
+        }
+
+        /* Warna untuk jawaban benar dan salah */
+        .benar {
+            background-color: #22c55e !important;
+            color: white;
+            border-color: #22c55e !important;
+        }
+
+        .salah {
+            background-color: #ef4444 !important;
+            color: white;
+            border-color: #ef4444 !important;
+        }
+
+        #tombol-lanjut {
+            background-color: #1e293b;
+            color: white;
+            border: none;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #tombol-lanjut:hover {
+            background-color: #0f172a;
+        }
+
+        .sembunyi {
+            display: none;
+        }
+
+        /* Styling untuk Bagian README / Dokumentasi */
+        .wadah-readme {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .wadah-readme h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .wadah-readme ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .wadah-readme p {
+            margin-bottom: 15px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- BAGIAN APLIKASI KUIS --&gt;
+    &lt;div class=&quot;wadah-aplikasi&quot;&gt;
+        &lt;h1&gt;Ujian Akhir Dasar Pemrograman&lt;/h1&gt;
         
-        <div class="wadah-kuis">
-            <h2 id="teks-pertanyaan">Pertanyaan akan muncul di sini</h2>
+        &lt;div class=&quot;wadah-kuis&quot;&gt;
+            &lt;h2 id=&quot;teks-pertanyaan&quot;&gt;Pertanyaan akan muncul di sini&lt;/h2&gt;
             
-            <div id="pilihan-jawaban" class="grup-pilihan">
-                <!-- Tombol jawaban akan dimuat secara dinamis oleh JavaScript -->
-            </div>
+            &lt;div id=&quot;pilihan-jawaban&quot; class=&quot;grup-pilihan&quot;&gt;
+                &lt;!-- Tombol jawaban akan dimuat secara dinamis oleh JavaScript --&gt;
+            &lt;/div&gt;
             
-            <button id="tombol-lanjut" class="tombol sembunyi">Pertanyaan Selanjutnya</button>
-        </div>
-    </div>
+            &lt;button id=&quot;tombol-lanjut&quot; class=&quot;tombol sembunyi&quot;&gt;Pertanyaan Selanjutnya&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <script src="script.js"></script>
+    &lt;!-- BAGIAN README / DOKUMENTASI --&gt;
+    &lt;div class=&quot;wadah-readme&quot;&gt;
+        &lt;h3&gt;ð Tentang Aplikasi Ini (README)&lt;/h3&gt;
+        &lt;p&gt;Aplikasi web interaktif ini dirancang untuk menguji pemahaman dasar pemrograman web (HTML, CSS, dan JavaScript) melalui 50 soal pilihan ganda.&lt;/p&gt;
+        
+        &lt;h3&gt;â¨ Fitur Utama:&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;strong&gt;Single File:&lt;/strong&gt; HTML, CSS, dan JavaScript digabung dalam satu file.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Umpan Balik Instan:&lt;/strong&gt; Tombol berubah warna otomatis menjadi hijau (benar) atau merah (salah).&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Penguncian Tombol:&lt;/strong&gt; Mencegah klik ganda setelah jawaban dipilih.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Rekap Skor:&lt;/strong&gt; Total nilai ditampilkan di akhir sesi kuis.&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;h3&gt;ð&nbsp;ï¸ Cara Penggunaan:&lt;/h3&gt;
+        &lt;p&gt;Cukup buka file HTML ini langsung di browser favoritmu (Chrome, Edge, Firefox, atau Safari) tanpa perlu instalasi tambahan.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const elemenPertanyaan = document.getElementById(&quot;teks-pertanyaan&quot;);
+        const elemenPilihan = document.getElementById(&quot;pilihan-jawaban&quot;);
+        const tombolLanjut = document.getElementById(&quot;tombol-lanjut&quot;);
+
+        // Bank Soal Pemrograman (50 Soal)
+        const pertanyaanKuis = [
+            {
+                pertanyaan: &quot;Bahasa pemrograman apa yang digunakan untuk mengatur tampilan dan gaya halaman web?&quot;,
+                jawaban: [
+                    { teks: &quot;HTML&quot;, benar: false },
+                    { teks: &quot;Python&quot;, benar: false },
+                    { teks: &quot;CSS&quot;, benar: true },
+                    { teks: &quot;JavaScript&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML mana yang digunakan untuk membuat judul (heading) paling besar?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;heading&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;h1&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;title&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;h6&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa kepanjangan dari JS dalam dunia web development?&quot;,
+                jawaban: [
+                    { teks: &quot;JavaSource&quot;, benar: false },
+                    { teks: &quot;JavaScript&quot;, benar: true },
+                    { teks: &quot;JustScript&quot;, benar: false },
+                    { teks: &quot;JavaSuper&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Simbol apa yang digunakan untuk membuat komentar satu baris di dalam JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;!-- Komentar --&gt;&quot;, benar: false },
+                    { teks: &quot;/* Komentar */&quot;, benar: false },
+                    { teks: &quot;// Komentar&quot;, benar: true },
+                    { teks: &quot;# Komentar&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah di bawah ini yang merupakan tipe data untuk menyimpan teks di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;Number&quot;, benar: false },
+                    { teks: &quot;Boolean&quot;, benar: false },
+                    { teks: &quot;String&quot;, benar: true },
+                    { teks: &quot;Array&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Fungsi apa yang digunakan untuk menampilkan data ke konsol di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;console.log()&quot;, benar: true },
+                    { teks: &quot;print.log()&quot;, benar: false },
+                    { teks: &quot;alert.console()&quot;, benar: false },
+                    { teks: &quot;document.write()&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS apa yang digunakan untuk mengubah warna teks?&quot;,
+                jawaban: [
+                    { teks: &quot;text-color&quot;, benar: false },
+                    { teks: &quot;color&quot;, benar: true },
+                    { teks: &quot;font-color&quot;, benar: false },
+                    { teks: &quot;background-color&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat tautan (link)?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;a&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;link&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;href&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;url&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah yang merupakan ekstensi file untuk halaman web HTML?&quot;,
+                jawaban: [
+                    { teks: &quot;.js&quot;, benar: false },
+                    { teks: &quot;.css&quot;, benar: false },
+                    { teks: &quot;.html&quot;, benar: true },
+                    { teks: &quot;.php&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Perintah keyword apa yang digunakan untuk mendeklarasikan variabel yang nilainya bisa diubah di JavaScript modern?&quot;,
+                jawaban: [
+                    { teks: &quot;var&quot;, benar: false },
+                    { teks: &quot;let&quot;, benar: true },
+                    { teks: &quot;const&quot;, benar: false },
+                    { teks: &quot;static&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari keyword `const` di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;Membuat variabel yang nilainya tetap dan tidak bisa diubah&quot;, benar: true },
+                    { teks: &quot;Membuat fungsi matematika&quot;, benar: false },
+                    { teks: &quot;Menghapus variabel&quot;, benar: false },
+                    { teks: &quot;Membuat kondisi if-else&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah struktur kontrol perulangan (looping) yang ada di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;for&quot;, benar: true },
+                    { teks: &quot;repeat&quot;, benar: false },
+                    { teks: &quot;loop&quot;, benar: false },
+                    { teks: &quot;iterate&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagaimana cara menuliskan kondisi 'jika' di dalam JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;when ()&quot;, benar: false },
+                    { teks: &quot;if ()&quot;, benar: true },
+                    { teks: &quot;case ()&quot;, benar: false },
+                    { teks: &quot;check ()&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari tag HTML `&lt;img&gt;`?&quot;,
+                jawaban: [
+                    { teks: &quot;Memasukkan gambar ke dalam halaman web&quot;, benar: true },
+                    { teks: &quot;Membuat teks menjadi tebal&quot;, benar: false },
+                    { teks: &quot;Membuat garis bawah&quot;, benar: false },
+                    { teks: &quot;Membuat tabel&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Atribut apa yang wajib ada pada tag `&lt;img&gt;` untuk menentukan sumber file gambar?&quot;,
+                jawaban: [
+                    { teks: &quot;href&quot;, benar: false },
+                    { teks: &quot;src&quot;, benar: true },
+                    { teks: &quot;link&quot;, benar: false },
+                    { teks: &quot;file&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS apa yang digunakan untuk mengatur latar belakang elemen?&quot;,
+                jawaban: [
+                    { teks: &quot;background-color&quot;, benar: true },
+                    { teks: &quot;color-bg&quot;, benar: false },
+                    { teks: &quot;bg-color&quot;, benar: false },
+                    { teks: &quot;image-background&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah operator perbandingan untuk 'sama dengan' secara nilai dan tipe data di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;=&quot;, benar: false },
+                    { teks: &quot;==&quot;, benar: false },
+                    { teks: &quot;===&quot;, benar: true },
+                    { teks: &quot;!=&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari method JavaScript `alert()`?&quot;,
+                jawaban: [
+                    { teks: &quot;Menampilkan jendela pop-up peringatan ke pengguna&quot;, benar: true },
+                    { teks: &quot;Mengambil data dari server&quot;, benar: false },
+                    { teks: &quot;Menghapus elemen HTML&quot;, benar: false },
+                    { teks: &quot;Mengubah warna background&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat daftar berurutan (numbered list)?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;ul&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;ol&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;li&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;list&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat daftar tidak berurutan (bulleted list)?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;ul&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;ol&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;li&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;list&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagian dalam HTML yang digunakan untuk menampung informasi meta, judul halaman, dan tautan CSS adalah?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;body&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;head&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;main&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;footer&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagian utama dalam HTML yang menampilkan konten yang bisa dilihat pengguna di browser adalah?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;body&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;head&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;html&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;meta&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS apa yang digunakan untuk mengubah ukuran font?&quot;,
+                jawaban: [
+                    { teks: &quot;text-size&quot;, benar: false },
+                    { teks: &quot;font-size&quot;, benar: true },
+                    { teks: &quot;size&quot;, benar: false },
+                    { teks: &quot;text-style&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagaimana cara menulis selektor CSS untuk elemen dengan ID `utama`?&quot;,
+                jawaban: [
+                    { teks: &quot;.utama&quot;, benar: false },
+                    { teks: &quot;#utama&quot;, benar: true },
+                    { teks: &quot;utama&quot;, benar: false },
+                    { teks: &quot;*utama&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagaimana cara menulis selektor CSS untuk elemen dengan kelas `kotak`?&quot;,
+                jawaban: [
+                    { teks: &quot;#kotak&quot;, benar: false },
+                    { teks: &quot;.kotak&quot;, benar: true },
+                    { teks: &quot;kotak&quot;, benar: false },
+                    { teks: &quot;@kotak&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Method JavaScript apa yang digunakan untuk memilih elemen berdasarkan ID-nya?&quot;,
+                jawaban: [
+                    { teks: &quot;document.querySelector()&quot;, benar: false },
+                    { teks: &quot;document.getElementById()&quot;, benar: true },
+                    { teks: &quot;document.getElementsByClassName()&quot;, benar: false },
+                    { teks: &quot;document.getElementByTagName()&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tipe data apa di JavaScript yang hanya bernilai `true` atau `false`?&quot;,
+                jawaban: [
+                    { teks: &quot;String&quot;, benar: false },
+                    { teks: &quot;Number&quot;, benar: false },
+                    { teks: &quot;Boolean&quot;, benar: true },
+                    { teks: &quot;Undefined&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Simbol apa yang digunakan untuk menyatakan operator logika 'DAN' (AND) di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;||&quot;, benar: false },
+                    { teks: &quot;&amp;&amp;&quot;, benar: true },
+                    { teks: &quot;!&quot;, benar: false },
+                    { teks: &quot;==&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Simbol apa yang digunakan untuk menyatakan operator logika 'ATAU' (OR) di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;&amp;&amp;&quot;, benar: false },
+                    { teks: &quot;||&quot;, benar: true },
+                    { teks: &quot;!&quot;, benar: false },
+                    { teks: &quot;++&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari method JavaScript `Array.push()`?&quot;,
+                jawaban: [
+                    { teks: &quot;Menambahkan elemen baru di akhir array&quot;, benar: true },
+                    { teks: &quot;Menghapus elemen terakhir dari array&quot;, benar: false },
+                    { teks: &quot;Membalikkan urutan array&quot;, benar: false },
+                    { teks: &quot;Menggabungkan dua array&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS apa yang digunakan untuk membuat tata letak fleksibel (Flexbox)?&quot;,
+                jawaban: [
+                    { teks: &quot;display: flex;&quot;, benar: true },
+                    { teks: &quot;layout: flexbox;&quot;, benar: false },
+                    { teks: &quot;flex: true;&quot;, benar: false },
+                    { teks: &quot;position: flex;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat baris baru (line break)?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;lb&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;br&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;break&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;hr&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat garis horizontal pemisah?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;line&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;hr&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;br&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;divider&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah cara yang benar untuk memanggil file eksternal JavaScript ke dalam HTML?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;script src='script.js'&gt;&lt;/script&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;link rel='stylesheet' href='script.js'&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;javascript href='script.js'&gt;&lt;/javascript&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;js file='script.js'&gt;&lt;/js&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah cara yang benar untuk menghubungkan file eksternal CSS ke dalam HTML?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;script src='style.css'&gt;&lt;/script&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;link rel='stylesheet' href='style.css'&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;style src='style.css'&gt;&lt;/style&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;css href='style.css'&gt;&lt;/css&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa kepanjangan dari HTML?&quot;,
+                jawaban: [
+                    { teks: &quot;HyperText Markup Language&quot;, benar: true },
+                    { teks: &quot;High Tech Modern Language&quot;, benar: false },
+                    { teks: &quot;Hyper Transfer Machine Language&quot;, benar: false },
+                    { teks: &quot;Home Tool Markup Language&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa kepanjangan dari CSS?&quot;,
+                jawaban: [
+                    { teks: &quot;Computer Style Sheets&quot;, benar: false },
+                    { teks: &quot;Cascading Style Sheets&quot;, benar: true },
+                    { teks: &quot;Creative Style System&quot;, benar: false },
+                    { teks: &quot;Colorful Style Sheets&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagaimana cara menulis fungsi (function) di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;function namaFungsi() { }&quot;, benar: true },
+                    { teks: &quot;def namaFungsi() { }&quot;, benar: false },
+                    { teks: &quot;create namaFungsi() { }&quot;, benar: false },
+                    { teks: &quot;fun namaFungsi() { }&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Method apa yang digunakan untuk menghapus elemen terakhir dari sebuah array di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;pop()&quot;, benar: true },
+                    { teks: &quot;shift()&quot;, benar: false },
+                    { teks: &quot;remove()&quot;, benar: false },
+                    { teks: &quot;delete()&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS mana yang mengatur jarak di dalam elemen (antara konten dan border)?&quot;,
+                jawaban: [
+                    { teks: &quot;margin&quot;, benar: false },
+                    { teks: &quot;padding&quot;, benar: true },
+                    { teks: &quot;spacing&quot;, benar: false },
+                    { teks: &quot;border-spacing&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS mana yang mengatur jarak di luar elemen?&quot;,
+                jawaban: [
+                    { teks: &quot;padding&quot;, benar: false },
+                    { teks: &quot;margin&quot;, benar: true },
+                    { teks: &quot;spacing&quot;, benar: false },
+                    { teks: &quot;offset&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Event listener apa yang sering digunakan untuk mendeteksi klik mouse pada tombol di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;click&quot;, benar: true },
+                    { teks: &quot;hover&quot;, benar: false },
+                    { teks: &quot;press&quot;, benar: false },
+                    { teks: &quot;mousechange&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari method `JSON.stringify()` di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;Mengubah objek JavaScript menjadi string berformat JSON&quot;, benar: true },
+                    { teks: &quot;Mengubah string JSON menjadi objek JavaScript&quot;, benar: false },
+                    { teks: &quot;Menghapus data JSON&quot;, benar: false },
+                    { teks: &quot;Mengonversi teks menjadi huruf kapital&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa fungsi dari method `JSON.parse()` di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;Mengubah string berformat JSON menjadi objek JavaScript&quot;, benar: true },
+                    { teks: &quot;Mengubah objek menjadi string JSON&quot;, benar: false },
+                    { teks: &quot;Menghitung panjang string&quot;, benar: false },
+                    { teks: &quot;Memeriksa error kode&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Tag HTML apa yang digunakan untuk membuat formulir (form input data)?&quot;,
+                jawaban: [
+                    { teks: &quot;&lt;input&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;form&gt;&quot;, benar: true },
+                    { teks: &quot;&lt;fieldset&gt;&quot;, benar: false },
+                    { teks: &quot;&lt;text&gt;&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Atribut tipe apa pada `&lt;input&gt;` yang digunakan untuk membuat kolom sandi (password)?&quot;,
+                jawaban: [
+                    { teks: &quot;type='text'&quot;, benar: false },
+                    { teks: &quot;type='password'&quot;, benar: true },
+                    { teks: &quot;type='hidden'&quot;, benar: false },
+                    { teks: &quot;type='secret'&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Manakah yang merupakan kerangka kerja (framework) JavaScript populer untuk pembuatan antarmuka pengguna?&quot;,
+                jawaban: [
+                    { teks: &quot;React&quot;, benar: true },
+                    { teks: &quot;Laravel&quot;, benar: false },
+                    { teks: &quot;Django&quot;, benar: false },
+                    { teks: &quot;Flask&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Apa kegunaan dari tag HTML `&lt;table&gt;`?&quot;,
+                jawaban: [
+                    { teks: &quot;Membuat tabel baris dan kolom&quot;, benar: true },
+                    { teks: &quot;Membuat daftar navigasi&quot;, benar: false },
+                    { teks: &quot;Membuat tombol interaktif&quot;, benar: false },
+                    { teks: &quot;Menyimpan database&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Properti CSS apa yang digunakan untuk membuat sudut border elemen menjadi melengkung?&quot;,
+                jawaban: [
+                    { teks: &quot;border-radius&quot;, benar: true },
+                    { teks: &quot;corner-curve&quot;, benar: false },
+                    { teks: &quot;radius-style&quot;, benar: false },
+                    { teks: &quot;border-curve&quot;, benar: false }
+                ]
+            },
+            {
+                pertanyaan: &quot;Bagaimana cara mengecek panjang (jumlah elemen) dari sebuah array di JavaScript?&quot;,
+                jawaban: [
+                    { teks: &quot;array.size&quot;, benar: false },
+                    { teks: &quot;array.length&quot;, benar: true },
+                    { teks: &quot;array.count&quot;, benar: false },
+                    { teks: &quot;array.total&quot;, benar: false }
+                ]
+            }
+        ];
+
+        let indeksPertanyaanSaatIni = 0;
+        let skor = 0;
+
+        function mulaiKuis() {
+            indeksPertanyaanSaatIni = 0;
+            skor = 0;
+            tombolLanjut.innerHTML = &quot;Pertanyaan Selanjutnya&quot;;
+            tampilkanPertanyaan();
+        }
+
+        function tampilkanPertanyaan() {
+            resetState();
+            let soalSaatIni = pertanyaanKuis[indeksPertanyaanSaatIni];
+            let nomorSoal = indeksPertanyaanSaatIni + 1;
+            elemenPertanyaan.innerHTML = nomorSoal + &quot;. &quot; + soalSaatIni.pertanyaan;
+
+            soalSaatIni.jawaban.forEach(jawaban =&gt; {
+                const tombol = document.createElement(&quot;button&quot;);
+                tombol.innerHTML = jawaban.teks;
+                tombol.classList.add(&quot;tombol&quot;);
+                elemenPilihan.appendChild(tombol);
+                
+                if (jawaban.benar) {
+                    tombol.dataset.benar = jawaban.benar;
+                }
+                tombol.addEventListener(&quot;click&quot;, pilihJawaban);
+            });
+        }
+
+        function resetState() {
+            tombolLanjut.classList.add(&quot;sembunyi&quot;);
+            while (elemenPilihan.firstChild) {
+                elemenPilihan.removeChild(elemenPilihan.firstChild);
+            }
+        }
+
+        function pilihJawaban(e) {
+            const tombolTerpilih = e.target;
+            const apakahBenar = tombolTerpilih.dataset.benar === &quot;true&quot;;
+            
+            if (apakahBenar) {
+                tombolTerpilih.classList.add(&quot;benar&quot;);
+                skor++;
+            } else {
+                tombolTerpilih.classList.add(&quot;salah&quot;);
+            }
+            
+            Array.from(elemenPilihan.children).forEach(tombol =&gt; {
+                if (tombol.dataset.benar === &quot;true&quot;) {
+                    tombol.classList.add(&quot;benar&quot;);
+                }
+                tombol.disabled = true;
+            });
+            
+            tombolLanjut.classList.remove(&quot;sembunyi&quot;);
+        }
+
+        function tampilkanSkor() {
+            resetState();
+            elemenPertanyaan.innerHTML = `Kuis Selesai! Skor Anda: ${skor} dari ${pertanyaanKuis.length}`;
+            tombolLanjut.innerHTML = &quot;Coba Lagi&quot;;
+            tombolLanjut.classList.remove(&quot;sembunyi&quot;);
+        }
+
+        function tanganiTombolLanjut() {
+            indeksPertanyaanSaatIni++;
+            if (indeksPertanyaanSaatIni &lt; pertanyaanKuis.length) {
+                tampilkanPertanyaan();
+            } else {
+                tampilkanSkor();
+            }
+        }
+
+        tombolLanjut.addEventListener(&quot;click&quot;, () =&gt; {
+            if (indeksPertanyaanSaatIni &lt; pertanyaanKuis.length) {
+                tanganiTombolLanjut();
+            } else {
+                mulaiKuis();
+            }
+        });
+
+        mulaiKuis();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 </body>
 </html>
