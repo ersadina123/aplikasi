@@ -1,2 +1,2 @@
-# aplikasi
-aplikasi adalah
+# KUIZ
+Selamat mengerjakan
