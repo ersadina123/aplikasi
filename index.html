@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Pola Hidup Sehat & Kebugaran</title>
+    <!-- Menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Website Utama -->
+    <div class="container">
+        <header>
+            <h1>🌿 Panduan Pola Hidup Sehat</h1>
+            <p>Langkah mudah menuju fisik yang bugar dan mental yang sehat</p>
+        </header>
+
+        <div class="content-section">
+            <h2>Pilar Utama Kesehatan</h2>
+            <p>Menjaga pola hidup sehat tidak sesulit yang dibayangkan. Berikut adalah beberapa hal esensial yang bisa kamu terapkan sehari-hari:</p>
+            <ul>
+                <li><strong>Nutrisi Seimbang:</strong> Konsumsi makanan kaya serat, protein, vitamin, dan kurangi makanan tinggi gula serta lemak jenuh.</li>
+                <li><strong>Hidrasi Cukup:</strong> Minum air putih minimal 8 gelas sehari untuk menjaga metabolisme tubuh tetap optimal.</li>
+                <li><strong>Olahraga Teratur:</strong> Lakukan aktivitas fisik ringan seperti jalan kaki, jogging, atau senam minimal 30 menit sehari.</li>
+                <li><strong>Istirahat Berkualitas:</strong> Tidur cukup selama 7–8 jam setiap malam agar sel-sel tubuh dapat melakukan regenerasi dengan baik.</li>
+            </ul>
+
+            <!-- Kalkulator BMI Interaktif -->
+            <div class="calculator-box">
+                <h2>🧮 Kalkulator Cek Berat Badan (BMI)</h2>
+                <div class="input-group">
+                    <label for="berat">Berat Badan (kg):</label>
+                    <input type="number" id="berat" placeholder="Contoh: 60">
+                </div>
+                <div class="input-group">
+                    <label for="tinggi">Tinggi Badan (cm):</label>
+                    <input type="number" id="tinggi" placeholder="Contoh: 170">
+                </div>
+                <button class="btn" onclick="hitungBMI()">Hitung BMI Saya</button>
+                <div id="hasil-bmi"></div>
+            </div>
+
+            <!-- Generator Tips Sehat Harian -->
+            <div class="tips-box">
+                <h2>💡 Tips Sehat Hari Ini</h2>
+                <p id="teks-tips">"Klik tombol di bawah untuk mendapatkan tips kesehatan harian!"</p>
+                <button class="btn btn-tips" onclick="tampilkanTipsBaru()">Ambil Tips Baru</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bagian Dokumentasi / README -->
+    <div class="readme-container">
+        <h3>🚀 Tentang Proyek Ini (README)</h3>
+        <p>Website informasi <strong>Pola Hidup Sehat</strong> ini dibuat dengan memisahkan file HTML, CSS, dan JavaScript secara modular.</p>
+        
+        <h3>✨ Fitur Utama:</h3>
+        <ul>
+            <li><strong>Desain Responsif & Modern:</strong> Tampilan ramah pengguna dengan skema warna hijau alami.</li>
+            <li><strong>Kalkulator BMI Interaktif:</strong> Membantu pengguna menghitung indeks massa tubuh secara cepat.</li>
+            <li><strong>Generator Tips Dinamis:</strong> Menyajikan saran kesehatan acak menggunakan JavaScript.</li>
+        </ul>
+
+        <h3>🛠️ Struktur File Terpisah:</h3>
+        <p>
+            <code>index.html</code> (Struktur halaman)<br>
+            <code>style.css</code> (Desain & tampilan)<br>
+            <code>script.js</code> (Logika & interaksi)
+        </p>
+    </div>
+
+    <!-- Menghubungkan file JavaScript eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
