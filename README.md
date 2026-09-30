@@ -1,2 +1,0 @@
-# KUIZ
-Selamat mengerjakan
